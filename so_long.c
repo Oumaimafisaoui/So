@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:10 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/13 22:35:30 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 01:26:47 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ void	start_window(t_map *map)
 	map->mlx = mlx_init();
 	if(map->mlx == NULL)
 		error("mlx_init failed\n");
-	map->win = mlx_new_window(map->mlx, map->width * 50, map->height * 75, "so_long_project");
+	map->win = mlx_new_window(map->mlx, map->width * 65, map->height * 75, "so_long_project");
 	if(map->win == NULL)
 		error("mlx_new_window failed\n");
 	add_images(map);	
 	add_texture(map);
-	//mlx_hook(map->mlx, 17, 0, (void *)exit, 0);
+	mlx_hook(map->mlx, 17, 0, exit_program, 0);
 	mlx_loop(map->mlx);
 }
 int	main(int argc, char **argv)
