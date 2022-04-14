@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:49:05 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/12 21:27:40 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 02:10:05 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ int check_exit(t_map *map)
 		{
 			if(map->parse[i][j] == 'E')
 			{
-				if(map->the_exit >= 1)
-					return (0);
+				//map->the_exit += 1;
+				// if(map->the_exit == 0)
+				// 	return (0);
 				// map->the_exit_x = i;
 				// map->the_exit_y = j;
-				map->the_exit = 1;
+				map->the_exit++;
 			}
 			j++;
 		}

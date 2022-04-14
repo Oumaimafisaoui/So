@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:06 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 00:44:36 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 04:14:16 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	put_the_exit(t_map *map, int index1, int index2);
 void	put_the_player(t_map *map, int index1, int index2);
 void	put_the_collectable(t_map *map, int index1, int index2);
 void	put_the_enemy(t_map *map, int index1, int index2);
-
+void	finish(t_map *map);
 void	print_moves(t_map *map);
 int	mouvements(int key, t_map *map);
 int	exit_program(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 23:41:51 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/10 22:16:08 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:21:20 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	parsing_checking_map(char *map_arg, t_map *map)
 			break;
 		array = get_next_line(fd);
 		map->height++;
+		free(array);
 	 }
 	 close(fd);
 	 parsing_checking_map_2(map_arg, map, array);
@@ -99,6 +100,7 @@ int		parsing_checking_map_2(char *map_arg, t_map *map, char *array)
 		map->parse[index++] = array;
 		array = get_next_line(f);
 	}
+	map->parse[index] = NULL;
 	while(tmp - 1 > 0)
 	{
 		map->parse[i] = ft_substr(map->parse[i], 0, ft_strlen(map->parse[i]) - 1);

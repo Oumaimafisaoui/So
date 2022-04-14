@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:10 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 01:26:47 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 05:20:00 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void	prepare_functions(char *map_arg)
 	check_width(map);
 	if(!check_walls(map) || !check_player(map)|| !(check_exit(map)) || !(check_collectables(map)) || !(check_enemy(map)))
 		free_map(map, 4);
+	if(map->the_exit == 0 || map->player == 0 || map->collectable == 0 )
+		free_map(map, 2);
 	start_window(map);
 }
 
@@ -92,14 +94,16 @@ void	start_window(t_map *map)
 	map->mlx = mlx_init();
 	if(map->mlx == NULL)
 		error("mlx_init failed\n");
-	map->win = mlx_new_window(map->mlx, map->width * 65, map->height * 75, "so_long_project");
+	map->win = mlx_new_window(map->mlx, map->width * 50, map->height * 75, "so_long_project");
 	if(map->win == NULL)
 		error("mlx_new_window failed\n");
 	add_images(map);	
 	add_texture(map);
-	mlx_hook(map->mlx, 17, 0, exit_program, 0);
+	mlx_hook(map->win, 17, 0, (void *)exit, 0);
 	mlx_loop(map->mlx);
 }
+
+
 int	main(int argc, char **argv)
 {
 	check_arguments(argc, argv);
