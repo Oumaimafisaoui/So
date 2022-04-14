@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 23:41:51 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 05:21:20 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 22:31:25 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	parsing_checking_map(char *map_arg, t_map *map)
 	if(fd == -1)
 		error("map couldn't be found\n");
 	array = get_next_line(fd);
+	if(ft_strlen(array) > 50)
+		error("map's width is too long\n");
 	while(1)
 	{
 		if(array == NULL)

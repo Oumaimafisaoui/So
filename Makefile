@@ -8,7 +8,8 @@ CFLAGS = -Wall -Wextra -Werror
 # Makefile settings
 NAME = so_long
 HEADER = so_long.h
-LONGSRC = so_long.c get_next_line.c get_next_line_utils.c parsing_checking_map.c utils.c graphics.c check_objects.c put_elements.c put_elements2.c mouvements.c exit_program.c
+LONGSRC = so_long.c get_next_line.c get_next_line_utils.c parsing_checking_map.c utils.c graphics.c \
+check_objects.c put_elements.c put_elements2.c mouvements.c exit_program.c init_all.c utils2.c
 
 
 ############## The referencing #############
