@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:56:58 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 00:38:58 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 00:50:01 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,17 @@ int	event_up_down(t_map *map, int key)
 	if(key == 13)
 	{
 		index1 = index1 - 1;
-		if(!do_moves(map, index1, index2))
+		if(!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
 			return (0);
 		map->parse[index1 + 1][index2] = '0';		
 	}
-	// if(key == 1)
-	// {
-		
-	// }
-	// print_score(map);
+	if(key == 1)
+	{
+		index1 = index1 + 1;
+		if(!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
+			return (0);
+		map->parse[index1 - 1][index2] = '0';
+	}
 	return (1);
 }
 
@@ -54,7 +56,13 @@ int do_moves(t_map *map, int index1, int index2)
 		map->collectable--;
 		print_moves(map);
 	}
-	else if (map->parse[index1][index2] == 'E')
+	do_moves2(map, index1, index2);
+	return (1);
+}
+
+int do_moves2(t_map *map, int index1, int index2)
+{
+	if (map->parse[index1][index2] == 'E')
 	{
 		if(map->collectable != 0)
 			return (0);
@@ -63,14 +71,9 @@ int do_moves(t_map *map, int index1, int index2)
 		exit_program(map);
 	}
 	else if(map->parse[index1][index2] == 'N')
-	{
 		exit_program(map);
-		printf("you lost\n");
-	}
 	else if(map->parse[index1][index2] == '1')
-	{
 		return (0);
-	}
 	return (1);
 }
 
@@ -79,10 +82,10 @@ int		annouce_win(t_map *map)
 	char *moves;
 	
 	moves = ft_itoa(map->count_moves);
-	printf("%s", moves);
 	mlx_string_put(map->mlx, map->win, 2, 4, 0xFF0000, "Your score is :");
 	mlx_string_put(map->mlx, map->win, 2, 4, 0xFF0000, moves);
 	free(moves);
+	printf("%s\n %s\n", "You won !",moves);
 	return (0);
 }
 
@@ -96,9 +99,9 @@ int	mouvements(int key, t_map *map)
 {
 	int event;
 
-	if(key == 13)
+	if(key == 13 || key == 1)
 		event = event_up_down(map, key);
-	// if(key == 2 || key == 0 && map->parse[map->height - 1][map->width - 1] != '1')
+	//else if(key == 2 || key == 0 && map->parse[map->height - 1][map->width - 1] != '1')
 	// 	event = event_left_right(map, key);
 	else if(key == 53)
 		exit_program(map);

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:06 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 00:30:21 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 00:44:36 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ int	exit_program(t_map *map);
 int	ft_intlen(int n);
 char *ft_itoa(int n);
 int do_moves(t_map *map, int index1, int index2);
+int do_moves2(t_map *map, int index1, int index2);
 int		annouce_win(t_map *map);
 void print_score(t_map *map);
 void	ft_putnbr_fd(int n, int fd);
