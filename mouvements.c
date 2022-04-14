@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:56:58 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 00:50:01 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/14 00:56:34 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,31 @@ int	event_up_down(t_map *map, int key)
 		if(!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
 			return (0);
 		map->parse[index1 - 1][index2] = '0';
+	}
+	return (1);
+}
+
+int event_left_right(t_map *map, int key)
+{
+	int index1;
+	int index2;
+
+	index1 = map->player_y;
+	index2 = map->player_x;
+	
+	if(key == 0)
+	{
+		index2 = index2 - 1;
+		if(!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
+			return (0);
+		map->parse[index1][index2 + 1] = '0';		
+	}
+	if(key == 2)
+	{
+		index2 = index2 + 1;
+		if(!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
+			return (0);
+		map->parse[index1][index2 - 1] = '0';
 	}
 	return (1);
 }
@@ -101,8 +126,8 @@ int	mouvements(int key, t_map *map)
 
 	if(key == 13 || key == 1)
 		event = event_up_down(map, key);
-	//else if(key == 2 || key == 0 && map->parse[map->height - 1][map->width - 1] != '1')
-	// 	event = event_left_right(map, key);
+	else if(key == 2 || key == 0)
+		event = event_left_right(map, key);
 	else if(key == 53)
 		exit_program(map);
 	add_texture(map);
