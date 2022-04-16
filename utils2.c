@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 23:13:09 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 23:37:31 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 20:51:42 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	print_moves(t_map *map)
 {
-	map->count_moves++;
 	printf("move: %d\n", map->count_moves);
 }

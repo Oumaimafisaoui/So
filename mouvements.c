@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:56:58 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 20:19:09 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 20:57:50 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int event_left_right(t_map *map, int key)
 		index2 = index2 - 1;
 		if(!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
 			return (0);
-		map->parse[index1][index2 + 1] = '0';		
+		map->parse[index1][index2 + 1] = '0';	
 	}
 	if(key == 2)
 	{
@@ -68,6 +68,7 @@ int do_moves(t_map *map, int index1, int index2)
 		map->parse[index1][index2] = 'P';
 		map->player_y = index1;
 		map->player_x = index2;
+		map->count_moves++;
 	}
 	else if(map->parse[index1][index2] == 'C')
 	{
@@ -75,6 +76,7 @@ int do_moves(t_map *map, int index1, int index2)
 		map->player_y = index1;
 		map->player_x = index2;
 		map->collectable--;
+		map->count_moves++;
 	}
 	return (1);
 }
@@ -85,10 +87,14 @@ int do_moves2(t_map *map, int index1, int index2)
 	{
 		if(map->collectable != 0)
 			return (0);
+		map->count_moves++;
 		exit_program(map);
 	}
 	else if(map->parse[index1][index2] == 'N')
+	{
+		map->count_moves++;
 		exit_program(map);
+	}
 	else if(map->parse[index1][index2] == '1')
 		return (0);
 	return (1);
