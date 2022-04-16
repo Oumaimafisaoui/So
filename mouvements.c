@@ -6,13 +6,11 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:56:58 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 23:43:47 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 20:19:09 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-//handle the events:
 
 int	event_up_down(t_map *map, int key)
 {
@@ -105,8 +103,6 @@ int	mouvements(int key, t_map *map)
 		event = event_left_right(map, key);
 	else if(key == 53)
 		exit_program(map);
-	else
-		error("invalid move\n");
 	mlx_clear_window(map->mlx, map->win);
 	add_texture(map);
 	annouce_win(map);
@@ -121,8 +117,8 @@ int		annouce_win(t_map *map)
 	print_moves(map);
 	moves = ft_itoa(map->count_moves);
 	printf("%s\n",moves);
-	mlx_string_put(map->mlx, map->win, 100, 100, 16711680, "Moves:");
-	mlx_string_put(map->mlx, map->win, 120, 150, 16711680, moves);
+	mlx_string_put(map->mlx, map->win, 100, 100, 0x540786 , "Moves:");
+	mlx_string_put(map->mlx, map->win, 120, 150, 0x540786 , moves);
 	free(moves);
 	return (0);
 }

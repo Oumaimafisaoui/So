@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:10 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 22:56:30 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 20:13:50 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	prepare_functions(char *map_arg)
 	init_all(map);
 	parsing_checking_map(map_arg, map);
 	check_width(map);
+	if(!check_other(map))
+		free_map(map, 5);
 	if (!check_walls(map) || !check_player(map) || !(check_exit(map)) || !(check_collectables(map)) || !(check_enemy(map)))
 		free_map(map, 4);
 	if (map->the_exit == 0 || map->player == 0 || map->collectable == 0)
@@ -81,4 +83,27 @@ int	main(int argc, char **argv)
 {
 	check_arguments(argc, argv);
 	return (0);
+}
+
+
+int check_other(t_map *map)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < map->height)
+	{
+		j = 0;
+		while (j < map->width)
+		{
+			if (map->parse[i][j] != 'P' && map->parse[i][j] != '0' && map->parse[i][j] != '1' && map->parse[i][j] != 'C' && map->parse[i][j] != 'E' && map->parse[i][j] != 'N')
+			{
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

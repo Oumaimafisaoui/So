@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 23:41:51 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 22:31:25 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 20:02:45 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	free_map(t_map *map, int flag)
 		error("Invalisd map walls in width\n");
 	else if(flag == 4)
 		error("Invalid map walls in height or objects\n");
+	else if (flag == 5)	
+		error("Invalid object key\n");
 }
 
 
@@ -63,8 +65,8 @@ int	parsing_checking_map(char *map_arg, t_map *map)
 	if(fd == -1)
 		error("map couldn't be found\n");
 	array = get_next_line(fd);
-	if(ft_strlen(array) > 50)
-		error("map's width is too long\n");
+	if(ft_strlen(array) > 100)
+		error("Map's width is too long, risk of a minilibx undefined behavior.\n");
 	while(1)
 	{
 		if(array == NULL)

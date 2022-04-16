@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:06 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 22:44:30 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/15 00:05:04 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,5 @@ int do_moves2(t_map *map, int index1, int index2);
 int		annouce_win(t_map *map);
 void print_score(t_map *map);
 void	ft_putnbr_fd(int n, int fd);
+int check_other(t_map *map);
 #endif
