@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:10 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 21:43:00 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 22:43:04 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	start_window(t_map *map)
 		error("mlx_new_window failed\n");
 	add_images(map);
 	add_texture(map);
+	mlx_key_hook(map->win, mouvements, map);
 	mlx_hook(map->win, 17, 0, (void *)exit, 0);
 	mlx_loop(map->mlx);
 }

@@ -6,18 +6,12 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 23:13:09 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 22:03:06 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 22:21:00 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_moves(t_map *map)
-{
-	ft_putstr_fd("Moves:", 1);
-	ft_putnbr_fd(map->count_moves, 1);
-	ft_putstr_fd("\n", 1);
-}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
