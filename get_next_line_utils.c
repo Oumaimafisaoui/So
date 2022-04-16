@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:14:04 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/10 22:46:17 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 21:15:24 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,95 +69,3 @@ char	*ft_strchr(char *string, int n)
 	}
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// int    ft_strlen(char *str)
-// {
-//     int    i;
-
-//     i = 0;
-//     while (str[i])
-//     {
-//         i++;
-//     }
-//     return (i);
-// }
-
-// char    *ft_strdup(char *s)
-// {
-//     int        i;
-//     char    *dst;
-
-//     if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
-//         return (NULL);
-//     i = 0;
-//     while (s[i])
-//     {
-//         dst[i] = s[i];
-//         i++;
-//     }
-//     dst[i] = '\0';
-//     return (dst);
-// }
-
-// char    *ft_strjoin(char *s1, char *s2)
-// {
-//     int        i;
-//     int        j;
-//     char    *tab;
-
-//     if (!s1 && !s2)
-//         return (NULL);
-//     if (!s1)
-//         return (ft_strdup(s2));
-//     i = ft_strlen(s1) + ft_strlen(s2) + 1;
-//     if (!(tab = (char *)malloc(sizeof(char) * i)))
-//         return (NULL);
-//     i = -1;
-//     while (s1[++i])
-//         tab[i] = s1[i];
-//     j = -1;
-//     while (s2[++j])
-//     {
-//         tab[i] = s2[j];
-//         i++;
-//     }
-//     tab[i] = '\0';
-//     free(s1);
-//     return (tab);
-// }

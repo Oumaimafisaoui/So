@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 22:20:55 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 20:12:18 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 21:20:06 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 void	add_images(t_map *map)
 {
-	int index1;
-	int index2;
+	int	index1;
+	int	index2;
 
-	map->player_img = mlx_xpm_file_to_image(map->mlx, "./images/mefinal.xpm", &index1, &index2);
-	map->the_exit_img = mlx_xpm_file_to_image(map->mlx, "./images/exit.xpm", &index1, &index2);
-	map->collectable_img = mlx_xpm_file_to_image(map->mlx, "./images/coinfinal.xpm", &index1, &index2);
-	map->floor_img = mlx_xpm_file_to_image(map->mlx, "./images/ground.xpm", &index1, &index2);
-	map->ceiling_img = mlx_xpm_file_to_image(map->mlx, "./images/mac.xpm", &index1, &index2);
-	map->enemy_img = mlx_xpm_file_to_image(map->mlx, "./images/final-black-hole.xpm", &index1, &index2);
+	map->player_img = mlx_xpm_file_to_image(map->mlx, \
+	"./images/mefinal.xpm", &index1, &index2);
+	map->the_exit_img = mlx_xpm_file_to_image(map->mlx, \
+	"./images/exit.xpm", &index1, &index2);
+	map->collectable_img = mlx_xpm_file_to_image(map->mlx, \
+	"./images/coinfinal.xpm", &index1, &index2);
+	map->floor_img = mlx_xpm_file_to_image(map->mlx, \
+	"./images/ground.xpm", &index1, &index2);
+	map->ceiling_img = mlx_xpm_file_to_image(map->mlx, \
+	"./images/mac.xpm", &index1, &index2);
+	map->enemy_img = mlx_xpm_file_to_image(map->mlx, \
+	"./images/final-black-hole.xpm", &index1, &index2);
 }
-
-
 
 void	add_texture(t_map *map)
 {
-	int index1;
-	int index2;
+	int	index1;
+	int	index2;
 
 	index1 = -1;
 	map->collectable = 0;

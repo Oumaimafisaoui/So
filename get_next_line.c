@@ -6,17 +6,17 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:23:52 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 23:11:27 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 21:18:25 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char *ft_update_backup(char *text_backup)
+char	*ft_update_backup(char *text_backup)
 {
 	int		index;
 	int		count;
-	char *new_backup_start;
+	char	*new_backup_start;
 
 	index = 0;
 	while (*(text_backup + index) && *(text_backup + index) != '\n')
@@ -38,10 +38,10 @@ char *ft_update_backup(char *text_backup)
 	return (new_backup_start);
 }
 
-char *ft_take_line(char *text_backup)
+char	*ft_take_line(char *text_backup)
 {
 	int		index;
-	char *the_line;
+	char	*the_line;
 
 	index = 0;
 	if (!(*(text_backup)))
@@ -66,10 +66,10 @@ char *ft_take_line(char *text_backup)
 	return (the_line);
 }
 
-char *ft_read_backup(int fd, char *text_backup)
+char	*ft_read_backup(int fd, char *text_backup)
 {
 	int		bytes;
-	char *text;
+	char	*text;
 
 	bytes = 1;
 	text = malloc((BUFFER_SIZE + 1) * sizeof(char));
@@ -90,10 +90,10 @@ char *ft_read_backup(int fd, char *text_backup)
 	return (text_backup);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	char *the_line;
-	static char *text_backup;
+	char		*the_line;
+	static char	*text_backup;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);

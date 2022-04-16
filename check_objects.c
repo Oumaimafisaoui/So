@@ -6,16 +6,16 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:49:05 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/14 22:41:11 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 21:14:58 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int check_player(t_map *map)
+int	check_player(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < map->height)
@@ -36,10 +36,10 @@ int check_player(t_map *map)
 	return (1);
 }
 
-int check_exit(t_map *map)
+int	check_exit(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < map->height)
@@ -58,10 +58,10 @@ int check_exit(t_map *map)
 	return (1);
 }
 
-int check_collectables(t_map *map)
+int	check_collectables(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < map->height)
@@ -82,10 +82,10 @@ int check_collectables(t_map *map)
 	return (1);
 }
 
-int check_walls(t_map *map)
+int	check_walls(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i <= map->height - 1)
@@ -95,7 +95,8 @@ int check_walls(t_map *map)
 		{
 			if (map->parse[i][0] != '1' || map->parse[i][map->width - 1] != '1')
 				return (0);
-			if (map->parse[0][j] != '1' || map->parse[map->height - 1][j] != '1')
+			if (map->parse[0][j] != '1' \
+			|| map->parse[map->height - 1][j] != '1')
 				return (0);
 			j++;
 		}
@@ -104,10 +105,10 @@ int check_walls(t_map *map)
 	return (1);
 }
 
-int check_enemy(t_map *map)
+int	check_enemy(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < map->height)
