@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:06 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/17 02:54:55 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/17 03:49:21 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
-
-typedef struct s_img
-{
-	void		*img;
-	char		*data;
-	int			bpp;
-	int			size_line;
-	int			endian;
-}				t_img;
 
 typedef struct s_map
 {
