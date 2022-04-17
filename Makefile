@@ -30,8 +30,6 @@ RM = rm -rf
 ########################################################################
 
 
-
-
 $(NAME): $(LONGOBJ) $(HEADER)
 	$(CC) $(LONGOBJ) $(CFLAGS)  -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
@@ -50,7 +48,7 @@ clean:
 			$(RM) $(LONGOBJ) $(BONOBJ)
 
 fclean:		clean
-			$(RM) so_long
+			$(RM) so_long so_long_bonus
 
 re:			fclean all
 
