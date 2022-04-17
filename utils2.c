@@ -6,12 +6,11 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 23:13:09 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 22:21:00 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 23:04:35 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 22:20:55 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 22:45:58 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 23:05:06 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	add_texture(t_map *map)
 {
 	int	index1;
 	int	index2;
-	char	*moves;
 
 	index1 = -1;
 	map->collectable = 0;
@@ -58,9 +57,5 @@ void	add_texture(t_map *map)
 				put_the_enemy(map, index1, index2);
 		}
 	}
-	
-	moves = ft_itoa(map->count_moves);
-	mlx_string_put(map->mlx, map->win, 100, 100, 0x540786, "Moves:");
-	mlx_string_put(map->mlx, map->win, 120, 150, 0x540786, moves);
-	free(moves);
+	draw_in_screen(map);
 }

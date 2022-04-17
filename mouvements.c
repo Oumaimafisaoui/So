@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:56:58 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 22:41:44 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 23:41:09 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	event_up_down(t_map *map, int key)
 		index1 = index1 - 1;
 		if (!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
 			return (0);
-		map->parse[index1 + 1][index2] = '0';	
+		map->parse[index1 + 1][index2] = '0';
 	}
 	if (key == 1)
 	{
@@ -48,7 +48,7 @@ int	event_left_right(t_map *map, int key)
 		index2 = index2 - 1;
 		if (!do_moves(map, index1, index2) || !do_moves2(map, index1, index2))
 			return (0);
-		map->parse[index1][index2 + 1] = '0';	
+		map->parse[index1][index2 + 1] = '0';
 	}
 	if (key == 2)
 	{
@@ -111,6 +111,5 @@ int	mouvements(int key, t_map *map)
 		exit_program(map);
 	mlx_clear_window(map->mlx, map->win);
 	add_texture(map);
-	
 	return (1);
 }
