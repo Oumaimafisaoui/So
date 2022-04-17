@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:06 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/17 02:03:00 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/17 02:52:41 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_putchar_fd(char c, int fd);
 char	*ft_strstr(char *source, char *search);
 int		ft_strcmp(const char *s1, const char *s2);
 void	*ft_calloc(size_t num, size_t size);
-int		parsing_checking_map_2(char *map_arg, t_map *map, char *array);
+int		parsing_checking_map_2(char *map_arg, t_map *map);
 int		count_width(char *map);
 char	*ft_strdup(char *str);
 void	free_map(t_map *map, int flag);

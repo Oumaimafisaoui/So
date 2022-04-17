@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 23:41:51 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/17 00:08:08 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/17 02:47:04 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,16 @@ int	parsing_checking_map(char *map_arg, t_map *map)
 	{
 		if (array == NULL)
 			break ;
+		free(array);
 		array = get_next_line(fd);
 		map->height++;
-		free(array);
 	}
 	close(fd);
-	parsing_checking_map_2(map_arg, map, array);
+	parsing_checking_map_2(map_arg, map);
 	return (1);
 }
 
-int	parsing_checking_map_2(char *map_arg, t_map *map, char *array)
+int	parsing_checking_map_2(char *map_arg, t_map *map)
 {
 	int	f;
 	int	index;
@@ -85,13 +85,13 @@ int	parsing_checking_map_2(char *map_arg, t_map *map, char *array)
 	if (!map->parse)
 		error("malloc error\n");
 	f = open(map_arg, O_RDONLY);
-	array = get_next_line(f);
+	map->parse[index] = get_next_line(f);
 	while (1)
 	{
-		if (array == NULL)
+		if (map->parse[index] == NULL)
 			break ;
-		map->parse[index++] = array;
-		array = get_next_line(f);
+		index++;
+		map->parse[index] = get_next_line(f);
 	}
 	map->parse[index] = NULL;
 	close(f);

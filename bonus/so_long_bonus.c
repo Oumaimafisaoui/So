@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 04:24:10 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/17 01:11:44 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/17 02:53:16 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,19 @@ static void	check_width(t_map *map)
 
 void	prepare_functions(char *map_arg)
 {
-	t_map	*map;
+	t_map	map;
 
-	map = (t_map *)malloc(sizeof(t_map));
-	init_all(map);
-	parsing_checking_map(map_arg, map);
-	check_width(map);
-	if (!check_other(map))
-		free_map(map, 5);
-	if (!check_walls(map) || !check_player(map) || !(check_exit(map)) \
-	|| !(check_collectables(map)) || !(check_enemy(map)))
-		free_map(map, 4);
-	if (map->the_exit == 0 || map->player == 0 || map->collectable == 0)
-		free_map(map, 2);
-	start_window(map);
+	init_all(&map);
+	parsing_checking_map(map_arg, &map);
+	check_width(&map);
+	if (!check_other(&map))
+		free_map(&map, 5);
+	if (!check_walls(&map) || !check_player(&map) || !(check_exit(&map)) \
+	|| !(check_collectables(&map)) || !(check_enemy(&map)))
+		free_map(&map, 4);
+	if (map.the_exit == 0 || map.player == 0 || map.collectable == 0)
+		free_map(&map, 2);
+	start_window(&map);
 }
 
 void	start_window(t_map *map)
@@ -77,7 +76,7 @@ void	start_window(t_map *map)
 	add_images(map);
 	add_texture(map);
 	mlx_key_hook(map->win, mouvements, map);
-	mlx_hook(map->win, 17, 0, (void *)exit, 0);
+	mlx_hook(map->win, 17, 0, exit_program, map);
 	mlx_loop(map->mlx);
 }
 

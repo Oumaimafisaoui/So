@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:07:11 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/16 21:44:20 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/17 02:36:29 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	if (!res)
 		return (NULL);
 	ft_strlcpy(res, s + start, len + 1);
+	free(s);
 	return (res);
 }
 
