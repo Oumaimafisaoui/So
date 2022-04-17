@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   announce.c                                         :+:      :+:    :+:   */
+/*   announce_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 21:03:03 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/17 02:01:56 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/17 02:05:54 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,16 @@ int	annouce_win(t_map *map)
 	else
 	{
 		map->count_moves++;
-		ft_putstr_fd("Moves:", 1);
-		ft_putnbr_fd(map->count_moves, 1);
-		ft_putstr_fd("\n", 1);
 	}
 	return (1);
+}
+
+void	draw_in_screen(t_map *map)
+{
+	char	*moves;
+
+	moves = ft_itoa(map->count_moves);
+	mlx_string_put(map->mlx, map->win, 100, 100, 0x540786, "Moves:");
+	mlx_string_put(map->mlx, map->win, 120, 150, 0x540786, moves);
+	free(moves);
 }

@@ -6,7 +6,7 @@
 /*   By: oufisaou <oufisaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 21:40:04 by oufisaou          #+#    #+#             */
-/*   Updated: 2022/04/17 02:02:33 by oufisaou         ###   ########.fr       */
+/*   Updated: 2022/04/16 21:49:19 by oufisaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	check_other(t_map *map)
 		{
 			if (map->parse[i][j] != 'P' && map->parse[i][j] != '0' \
 			&& map->parse[i][j] != '1' && map->parse[i][j] != 'C' \
-			&& map->parse[i][j] != 'E')
+			&& map->parse[i][j] != 'E' \
+			&& map->parse[i][j] != 'N')
 			{
 				return (0);
 			}
